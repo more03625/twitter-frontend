@@ -1,14 +1,16 @@
 import React, { useState, useEffect } from 'react'
 import Header from '../layouts/Header'
 import PageTitle from '../layouts/PageTitle';
-import { getUserInfo, notify, convertToBase64, webErrors, signOut } from '../../helper/comman_helper';
-import { Toaster } from 'react-hot-toast';
+import UserImage from '../layouts/TweetCard/UserImage';
 import Spinner from '../layouts/Spinner';
 import ProfileSidebar from '../sections/update-profile/ProfileSidebar';
+
 import { profileApi } from '../../data/api/profile/profile';
-import { Link } from '@mui/material';
-import UserImage from '../layouts/TweetCard/UserImage';
+import { getUserInfo, notify, convertToBase64, webErrors, signOut } from '../../helper/comman_helper';
 import { twitterTokenName } from '../../helper/constant';
+
+import { Link } from '@mui/material';
+import { Toaster } from 'react-hot-toast';
 
 const Profile = () => {
     const [error, setError] = useState({});
