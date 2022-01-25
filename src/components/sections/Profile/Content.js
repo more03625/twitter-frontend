@@ -79,7 +79,7 @@ const Content = () => {
                             userInfo={tweets}
                         />
 
-                        {loading ? (<Spinner />) : (tweets?.length > 0 ? (
+                        {loading ? (<Spinner size={'small'} />) : (tweets?.length > 0 ? (
                             tweets.map(tweet => (
                                 <Tweet key={tweet._id} tweet={tweet} />
                             ))
@@ -88,7 +88,7 @@ const Content = () => {
                                 There are no tweets!
                             </div>
                         ))}
-                        {tweets.length > 0 ?("") : ("")}
+                        {tweets.length > 0 ? ("") : ("")}
 
                     </section>
                     <Sidebar />
