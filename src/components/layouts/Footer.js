@@ -1,15 +1,17 @@
 import React from 'react'
+import { Toaster } from 'react-hot-toast'
 import lightLogo from '../../assets/images/logo/footer-logo-light.png'
 
 const Footer = () => {
     return (
         <>
             <footer className="footer bg-dark pt-5">
+                <Toaster />
                 <div className="container pt-2 pb-3">
                     <div className="row">
                         <div className="col-md-6 text-center text-md-start mb-4">
                             <div className="text-nowrap mb-3"><a className="d-inline-block align-middle mt-n2 me-2" href="#">
-                                <img className="d-block" src={lightLogo} width="117" alt="Cartzilla"/></a><span className="d-inline-block align-middle h5 fw-light text-white mb-0">Marketplace</span></div>
+                                <img className="d-block" src={lightLogo} width="117" alt="Cartzilla" /></a><span className="d-inline-block align-middle h5 fw-light text-white mb-0">Marketplace</span></div>
                             <p className="fs-sm text-white opacity-70 pb-1">High quality items created by our global community.</p>
                             <h6 className="d-inline-block pe-3 me-3 border-end border-light"><span className="text-primary">65,478 </span><span className="fw-normal text-white">Products</span></h6>
                             <h6 className="d-inline-block pe-3 me-3 border-end border-light"><span className="text-primary">2,521 </span><span className="fw-normal text-white">Members</span></h6>
@@ -70,14 +72,14 @@ const Footer = () => {
                 </div>
                 <div className="pt-5 bg-darker">
                     <div className="container">
-                        <div className="widget w-100 mb-4 pb-3 text-center mx-auto" style={{maxWidth: "28rem"}}>
+                        <div className="widget w-100 mb-4 pb-3 text-center mx-auto" style={{ maxWidth: "28rem" }}>
                             <h3 className="widget-title text-light pb-1">Subscribe to newsletter</h3>
                             <form className="subscription-form validate" action="https://studio.us12.list-manage.com/subscribe/post?u=c7103e2c981361a6639545bd5&amp;amp;id=29ca296126" method="post" name="mc-embedded-subscribe-form" target="_blank" noValidate>
                                 <div className="input-group flex-nowrap"><i className="ci-mail position-absolute top-50 translate-middle-y text-muted fs-base ms-3"></i>
                                     <input className="form-control rounded-start" type="email" name="EMAIL" placeholder="Your email" required />
                                     <button className="btn btn-primary" type="submit" name="subscribe">Subscribe*</button>
                                 </div>
-                                <div style={{position: "absolute", left: "-5000px"}} aria-hidden="true">
+                                <div style={{ position: "absolute", left: "-5000px" }} aria-hidden="true">
                                     <input className="subscription-form-antispam" type="text" name="" tabIndex="-1" />
                                 </div>
                                 <div className="form-text text-light opacity-50">*Receive early discount offers, updates and new products info.</div>
@@ -86,8 +88,8 @@ const Footer = () => {
                         </div>
                         <hr className="hr-light mb-3" />
                         <div className="d-md-flex justify-content-between pt-4">
-                            <div className="pb-4 fs-xs text-light opacity-50 text-center text-md-start">© All rights reserved. Made by 
-                            <a className="text-light" href="#" target="_blank" rel="noopener">Createx Studio</a></div>
+                            <div className="pb-4 fs-xs text-light opacity-50 text-center text-md-start">© All rights reserved. Made by
+                                <a className="text-light" href="#" target="_blank" rel="noopener">Createx Studio</a></div>
                             <div className="widget widget-links widget-light pb-4">
                                 <ul className="widget-list d-flex flex-wrap justify-content-center justify-content-md-start">
                                     <li className="widget-list-item ms-4"><a className="widget-list-link fs-ms" href="#">Help Center</a></li>
@@ -105,9 +107,9 @@ const Footer = () => {
                     <span className="handheld-toolbar-icon"><i className="ci-heart"></i></span>
                     <span className="handheld-toolbar-label">Favorites</span>
                 </a>
-                <a className="d-table-cell handheld-toolbar-item" href="#" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" onClick={window.scrollTo(0, 0)}>
-                    <span className="handheld-toolbar-icon">
-                    <i className="ci-menu"></i></span>
+                    <a className="d-table-cell handheld-toolbar-item" href="#" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" onClick={window.scrollTo(0, 0)}>
+                        <span className="handheld-toolbar-icon">
+                            <i className="ci-menu"></i></span>
                         <span className="handheld-toolbar-label">Menu</span></a>
                     <a className="d-table-cell handheld-toolbar-item" href="marketplace-cart.html">
                         <span className="handheld-toolbar-icon">

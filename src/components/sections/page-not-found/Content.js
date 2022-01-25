@@ -17,7 +17,7 @@ const Content = () => {
                     </div>
                 </div>
                 <div className="row justify-content-center">
-                    <div className="col-xl-8 col-lg-10">
+                    <div className="offset-md-4">
                         <div className="row">
                             <div className="col-sm-4 mb-3">
                                 <Link className="card h-100 border-0 shadow-sm" to={'/'}>
@@ -31,31 +31,8 @@ const Content = () => {
                                     </div>
                                 </Link>
                             </div>
-                            <div className="col-sm-4 mb-3">
-                                <Link className="card h-100 border-0 shadow-sm" to={'/'}>
-                                    <div className="card-body">
-                                        <div className="d-flex align-items-center">
-                                            <i className="ci-search text-success h4 mb-0"></i>
-                                            <div className="ps-3">
-                                                <h5 className="fs-sm mb-0">By Category</h5>
-                                                <span className="text-muted fs-ms">Top Categories</span>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </Link>
-                            </div>
-                            <div className="col-sm-4 mb-3">
-                                <Link className="card h-100 border-0 shadow-sm" to={'/'}>
-                                    <div className="card-body">
-                                        <div className="d-flex align-items-center"><i className="ci-help text-info h4 mb-0"></i>
-                                            <div className="ps-3">
-                                                <h5 className="fs-sm mb-0">Latest Products</h5>
-                                                <span className="text-muted fs-ms">Checkout latest products!</span>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </Link>
-                            </div>
+
+
                         </div>
                     </div>
                 </div>
