@@ -18,7 +18,7 @@ const Content = () => {
         try {
             let data = {
                 page: pageNumber,
-                size: 10
+                size: defaultPageSize || 35
             }
             const response = await tweetApi(data, 'get');
 

@@ -9,6 +9,7 @@ import { isFollowingApi } from '../../../data/api/follow/follow';
 import UserBioCard from '../../layouts/profile/UserBioCard';
 import { setIsFollowingAction } from '../../../redux/actions/follow-unfollow-actions';
 import { useDispatch } from 'react-redux';
+import { defaultPageSize } from '../../../helper/constant';
 
 const Content = () => {
     const { userId } = useParams();
@@ -43,7 +44,7 @@ const Content = () => {
         try {
             let data = {
                 page: pageNumber,
-                size: 10,
+                size: defaultPageSize || 35,
                 createdBy: userId
             }
             const response = await tweetApi(data, 'get');
