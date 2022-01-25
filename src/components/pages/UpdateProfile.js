@@ -5,7 +5,7 @@ import { getUserInfo, notify, convertToBase64, webErrors, signOut } from '../../
 import { Toaster } from 'react-hot-toast';
 import Spinner from '../layouts/Spinner';
 import ProfileSidebar from '../sections/update-profile/ProfileSidebar';
-import { profileApi } from '../../data/api/profile/profile';
+import { profileApi } from '../../data/api/Profile/profile';
 import { Link } from '@mui/material';
 import UserImage from '../layouts/TweetCard/UserImage';
 import { twitterTokenName } from '../../helper/constant';

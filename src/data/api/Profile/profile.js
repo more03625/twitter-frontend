@@ -13,3 +13,4 @@ export const profileApi = (data = null, method) => {
             method === 'post' ? (axios.post(url, data, headers)) : 
             method === 'patch' ? (axios.patch(url, data, headers)) :'';
 }
+// Rahul More
