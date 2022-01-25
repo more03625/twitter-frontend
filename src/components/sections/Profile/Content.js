@@ -52,7 +52,6 @@ const Content = () => {
                 notify(response.data.title, 'error');
             } else {
                 setTweets(response.data.data);
-                notify(response.data.title, 'success');
             }
         } catch (err) {
             notify(webErrors.catchError, 'error');

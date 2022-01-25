@@ -1,4 +1,5 @@
 import React from 'react'
+import { Toaster } from 'react-hot-toast'
 import { Link } from 'react-router-dom'
 import logo from '../../assets/images/logo/twitter-logo.png'
 import { getUserInfo } from '../../helper/comman_helper'
@@ -6,6 +7,7 @@ const Header = () => {
     return (
         <>
             <main className="page-wrapper">
+                <Toaster />
                 <header className="shadow-sm">
                     <div className="topbar topbar-dark bg-dark">
                         <div className="container">
@@ -41,7 +43,7 @@ const Header = () => {
                                     {getUserInfo() && (
                                         <Link className="navbar-tool ms-1 ms-lg-0 me-n1 me-lg-2" to="/update-profile">
                                             <div className="navbar-tool-icon-box"><i className="navbar-tool-icon ci-user"></i></div>
-                                            <div className="navbar-tool-text ms-n3">{getUserInfo().data.name}'s Account</div>
+                                            <div className="navbar-tool-text ms-n3">{getUserInfo().data?.name}'s Account</div>
                                         </Link>
                                     )
 

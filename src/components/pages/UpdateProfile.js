@@ -8,6 +8,7 @@ import ProfileSidebar from '../sections/update-profile/ProfileSidebar';
 import { profileApi } from '../../data/api/profile/profile';
 import { Link } from '@mui/material';
 import UserImage from '../layouts/TweetCard/UserImage';
+import { twitterTokenName } from '../../helper/constant';
 
 const Profile = () => {
     const [error, setError] = useState({});
@@ -47,12 +48,19 @@ const Profile = () => {
         try {
 
             if (isValid()) {
-
                 const { createdAt, updatedAt, ...updateUserObject } = userInfo;
                 const response = await profileApi(updateUserObject, 'patch');
                 if (response.data.error) {
                     notify(response.data.title, 'error');
                 } else {
+                    let updateUserObject = { ...getUserInfo()?.data, ...response.data.data };
+
+                    let updatedLsData = {
+                        data: updateUserObject,
+                        token: getUserInfo()?.token
+                    }
+
+                    localStorage.setItem(twitterTokenName, JSON.stringify(updatedLsData))
                     notify(response.data.title, 'success');
                 }
             }
