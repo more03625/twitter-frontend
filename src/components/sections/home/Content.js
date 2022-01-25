@@ -6,6 +6,7 @@ import Tweet from '../../layouts/TweetCard/Tweet';
 import Sidebar from '../../layouts/Sidebar';
 import UserImage from '../../layouts/TweetCard/UserImage';
 import TweetArea from './TweetArea';
+import { defaultPageSize } from '../../../helper/constant';
 const Content = () => {
     const [tweets, setTweets] = useState([]);
     const [effect, setEffect] = useState(true);
