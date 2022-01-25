@@ -6,7 +6,9 @@ export const Endpoints = {
     signIn: "/api/auth/signin",
     signUp: "/api/auth/signup",
     tweet: "/api/tweet",
-    profile:"/api/profile"
+    profile: "/api/profile",
+    follow: "/api/follow",
+    isFollowing: "/api/follow/isFollowing"
 }
 export const notify = (message, type) => {
     type === 'error' ? toast.error(message) : toast.success(message)
@@ -30,6 +32,13 @@ export const uppercaseFirstLetter = (string) => {
 }
 export const lowercaseFirstLetter = (string) => {
     return string && string[0].toLowerCase() + string.slice(1);
+}
+export const signOut = () => {
+    localStorage.removeItem(twitterTokenName)
+    notify("Logged out successfully, Redirecting", 'success');
+    setTimeout(() => {
+        window.location.href = "/"
+    }, 2000)
 }
 export const convertToBase64 = (file) => {
     return new Promise((resolve, reject) => {
@@ -58,4 +67,8 @@ export const createReader = (file, whenReady) => {
         image.src = evt.target.result;
     };
     reader.readAsDataURL(file);
+}
+export const defaultCredentials = {
+    email: "viratkohli@gmail.com",
+    password: "123456789"
 }

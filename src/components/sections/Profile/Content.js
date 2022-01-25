@@ -1,19 +1,43 @@
 import React, { useState, useEffect } from 'react';
-import { Link, useParams } from 'react-router-dom';
+import { useParams } from 'react-router-dom';
 import { tweetApi } from '../../../data/api/tweet/tweet';
-import { getUserInfo, notify } from '../../../helper/comman_helper';
+import { notify, webErrors } from '../../../helper/comman_helper';
 import Sidebar from '../../layouts/Sidebar';
 import Spinner from '../../layouts/Spinner';
 import Tweet from '../../layouts/TweetCard/Tweet';
+import { isFollowingApi } from '../../../data/api/follow/follow';
+import UserBioCard from '../../layouts/profile/UserBioCard';
+import { setIsFollowingAction } from '../../../redux/actions/follow-unfollow-actions';
+import { useDispatch } from 'react-redux';
 
 const Content = () => {
     const { userId } = useParams();
+    const dispatch = useDispatch();
+
     const [tweets, setTweets] = useState([]);
     const [effect, setEffect] = useState(true);
     const [loading, setLoading] = useState(false);
 
     // Pagination
-    const [pageNumber, setPageNumber] = useState(1)
+    const [pageNumber, setPageNumber] = useState(1);
+
+    const isFollowing = async () => {
+        try {
+            let isIamFollowing = {
+                following: userId
+            }
+            const response = await isFollowingApi(isIamFollowing, 'post');
+
+            if (response.data.error) {
+                notify(response.data.title, 'error');
+            } else {
+                dispatch(setIsFollowingAction(response.data.isFollowing))
+            }
+        } catch (err) {
+            notify(webErrors.catchError, 'error');
+        }
+    }
+
     const getTweets = async () => {
         setLoading(true);
         try {
@@ -31,12 +55,16 @@ const Content = () => {
                 notify(response.data.title, 'success');
             }
         } catch (err) {
-            console.log(err);
+            notify(webErrors.catchError, 'error');
         }
         setLoading(false);
     }
+
     useEffect(() => {
-        getTweets()
+        isFollowing();
+    }, [])
+    useEffect(() => {
+        getTweets();
     }, [effect])
     return (
         <>
@@ -47,30 +75,12 @@ const Content = () => {
 
                         {/* Wishlist*/}
                         {/* Item*/}
-                        <div className="d-sm-flex justify-content-between mb-4 pb-3 pb-sm-2 border-bottom">
-                            <div className="d-block d-sm-flex align-items-start text-center text-sm-start">
-                                <a className="d-block flex-shrink-0 mx-auto me-sm-4" href="#" style={{ width: '10rem' }}>
-                                    <img className='border rounded-circle' src="https://avatars.githubusercontent.com/u/25549118?v=4" alt="Product" />
-                                </a>
-                                <div className="pt-2">
-                                    <h3 className="product-title fs-base mb-2"><a href="#">Rahul More</a></h3>
-                                    <div className="fs-sm"><span className="text-muted me-2">Email:</span>rahulmore@gmail.com</div>
-                                    <div className="fs-sm"><span className="text-muted me-2">Total Tweets:</span>50</div>
-                                    <div className="fs-sm"><span className="text-muted me-2">Followers:</span>50</div>
-                                </div>
-                            </div>
-                            <div className="pt-2 ps-sm-3 mx-auto mx-sm-0 text-center">
+                        <UserBioCard
+                            userId={userId}
+                            userInfo={tweets}
+                        />
 
-                                {
-                                    userId === getUserInfo().data._id ? (
-                                        <Link to="/update-profile" class="btn btn-outline-primary rounded-pill">Edit profile</Link>
-                                    ) : (<button type="button" class="btn btn-outline-primary rounded-pill">Follow</button>)
-                                }
-
-                            </div>
-                        </div>
-
-                        {loading ? (<Spinner />) : (tweets.length > 0 ? (
+                        {loading ? (<Spinner />) : (tweets?.length > 0 ? (
                             tweets.map(tweet => (
                                 <Tweet key={tweet._id} tweet={tweet} />
                             ))
@@ -79,10 +89,12 @@ const Content = () => {
                                 There are no tweets!
                             </div>
                         ))}
+                        {tweets.length > 0 ?("") : ("")}
 
                     </section>
                     <Sidebar />
-                </div></div>
+                </div>
+            </div>
         </>
 
 

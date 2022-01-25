@@ -1,12 +1,12 @@
 import React, { useState } from 'react';
-import { Link,useHistory  } from 'react-router-dom';
+import { Link, useHistory } from 'react-router-dom';
 import { signInApi } from '../../../../data/api/auth/auth';
-import { EMAIL_REGEX, notify, webErrors } from '../../../../helper/comman_helper';
+import { defaultCredentials, EMAIL_REGEX, notify, webErrors } from '../../../../helper/comman_helper';
 import { twitterTokenName } from '../../../../helper/constant';
 import Spinner from '../../../layouts/Spinner';
 
 const Content = () => {
-    const [userInfo, setUserInfo] = useState({});
+    const [userInfo, setUserInfo] = useState({ email: defaultCredentials.email, password: defaultCredentials.password });
     const [error, setError] = useState({});
     const [loading, setLoading] = useState(false);
     const history = useHistory();
@@ -67,14 +67,14 @@ const Content = () => {
                                 <div className="col-lg-12 mb-3">
                                     <div className="input-group">
                                         <i className="ci-mail position-absolute top-50 translate-middle-y text-muted fs-base ms-3" />
-                                        <input className="form-control rounded-start" type="text" placeholder="Pleaes enter your email!" onChange={(e) => handleChange(e)} name="email" />
+                                        <input className="form-control rounded-start" type="text" placeholder="Pleaes enter your email!" onChange={(e) => handleChange(e)} name="email" defaultValue={userInfo.email} />
                                     </div>
                                     {error.email && <span className="text-danger">{error.email}</span>}
                                 </div>
                                 <div className="col-lg-12 mb-3">
                                     <div className="input-group">
                                         <i className="ci-locked position-absolute top-50 translate-middle-y text-muted fs-base ms-3" />
-                                        <input className="form-control rounded-start" type="text" placeholder="Pleaes enter your password!" onChange={(e) => handleChange(e)} name="password" />
+                                        <input className="form-control rounded-start" type="password" placeholder="Pleaes enter your password!" onChange={(e) => handleChange(e)} name="password" defaultValue={userInfo.password} />
                                     </div>
                                     {error.password && <span className="text-danger">{error.password}</span>}
                                 </div>

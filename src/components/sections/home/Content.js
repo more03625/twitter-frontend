@@ -7,7 +7,6 @@ import Sidebar from '../../layouts/Sidebar';
 import UserImage from '../../layouts/TweetCard/UserImage';
 import TweetArea from './TweetArea';
 const Content = () => {
-
     const [tweets, setTweets] = useState([]);
     const [effect, setEffect] = useState(true);
     const [loading, setLoading] = useState(false);

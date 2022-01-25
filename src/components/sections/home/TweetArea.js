@@ -1,14 +1,13 @@
 import React, { useState } from 'react';
-import { convertToBase64, getUserInfo, notify } from '../../../helper/comman_helper';
-import demoTweet from '../../../assets/images/tweet/demo-tweet-1.jpg'
+import { convertToBase64, notify, webErrors } from '../../../helper/comman_helper';
 import Spinner from '../../layouts/Spinner';
 import { tweetApi } from '../../../data/api/tweet/tweet';
+
 const TweetArea = (props) => {
-    const {effect, setEffect}= props;
+    const { effect, setEffect } = props;
 
     const [error, setError] = useState({});
     const [tweet, setTweet] = useState({});
-    const [buttonStatus, setButtonStatus] = useState(false);
     const [loading, setLoading] = useState(false);
 
     const handleChange = (e) => {
@@ -31,16 +30,18 @@ const TweetArea = (props) => {
             notify(err, 'error');
             return false;
         } else {
-            return true
+            return true;
         }
     }
-
+    const reset = (e) => {
+        document.getElementById('tweet-form').reset();
+        setTweet({});
+    }
     const handleSubmit = async (e) => {
         setLoading(true)
         e.preventDefault();
         try {
             if (isValid()) {
-
                 const response = await tweetApi(tweet, 'post');
 
                 if (response.data.error) {
@@ -48,23 +49,25 @@ const TweetArea = (props) => {
                 } else {
                     setEffect(!effect)
                     notify(response.data.title, 'success');
+                    e.target.reset();
+                    setTweet({});
                 }
             }
         } catch (error) {
-            if (error.response.data.error) {
-                notify(error.response.data.title, 'error');
-            }
+            notify(webErrors.catchError, 'error');
         }
         setLoading(false);
     }
-    const reset = (e) => {
-        e.target.reset();
-        setTweet(null);
-    }
+
     return (
-        <form className="w-100 ms-3" onSubmit={handleSubmit}>
+        <form id="tweet-form" className="w-100 ms-3" onSubmit={handleSubmit}>
             <div className="mb-3">
-                <textarea className="form-control" rows={4} placeholder="What's in your mind?..." name="tweet" onChange={(e) => handleChange(e)} >{tweet.tweet}</textarea>
+                <textarea
+                    className="form-control"
+                    rows={4}
+                    placeholder="What's in your mind?..."
+                    name="tweet"
+                    onChange={(e) => handleChange(e)}>{tweet?.tweet}</textarea>
                 {error.tweet && <span className="text-danger">{error.tweet}</span>}
             </div>
 
@@ -73,20 +76,20 @@ const TweetArea = (props) => {
                 <input className="form-control" type="file" id="formFileMultiple" multiple onChange={(e) => uploadImages(e)} />
             </div>
             {
-                tweet.images?.length > 0 && (
+                tweet?.images?.length > 0 && (
                     <div className='blog-end-column mt-3'>
-                        <img className='blog-entry-thumb mb-3' src={tweet.images[0]} alt={'demoTweet'} />
+                        <img className='blog-entry-thumb mb-3' src={tweet?.images[0]} alt={'demoTweet'} />
                     </div>
                 )
             }
-            <button className="btn btn-primary btn-sm" type="submit" disabled={(loading || Object.keys(tweet).length < 1)}>
+            <button className="btn btn-primary btn-sm" type="submit" disabled={(loading || tweet && Object.keys(tweet).length < 1)}>
                 {
-                    loading ? (<Spinner />) : ('Tweet')
+                    loading ? (<Spinner size="small" />) : ('Tweet')
                 }
             </button>
             {
-                Object.keys(tweet).length > 0 && (
-                    <button className="mx-2 btn btn-primary btn-sm" type="reset" onClick={() => reset()}>
+                tweet && Object.keys(tweet)?.length > 0 && (
+                    <button className="mx-2 btn btn-primary btn-sm" type="reset" onClick={(e) => reset(e)}>
                         Reset
                     </button>
                 )

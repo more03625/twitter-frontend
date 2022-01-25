@@ -259,7 +259,7 @@
  }
  
  a:hover {
-     color: #fe3638;
+     color: #1d9bf0;
      text-decoration: none
  }
  
@@ -2189,7 +2189,7 @@
  .form-control:focus {
      color: #4b566b;
      background-color: #fff;
-     border-color: #ffb4b5;
+     border-color: #1b9df0;
      outline: 0;
      box-shadow: inset 0 1px 2px transparent, 0 .375rem .625rem -0.3125rem rgba(254, 105, 106, .15)
  }
@@ -2466,7 +2466,7 @@
  }
  
  .form-select:focus {
-     border-color: #ffb4b5;
+     border-color: #1b9df0;
      outline: 0;
      box-shadow: inset 0 1px 2px transparent, 0 0 0 0 rgba(254, 105, 106, .25)
  }
@@ -2542,7 +2542,7 @@
  }
  
  .form-check-input:focus {
-     border-color: #ffb4b5;
+     border-color: #1b9df0;
      outline: 0;
      box-shadow: 0 0 0 0 rgba(254, 105, 106, .25)
  }
@@ -3183,15 +3183,15 @@
  
  .btn-primary:hover {
      color: #000;
-     background-color: #fe8080;
-     border-color: #fe7879
+     background-color: #1d9bf0;
+     border-color: #1d9bf0
  }
  
  .btn-check:focus+.btn-primary,
  .btn-primary:focus {
      color: #000;
-     background-color: #fe8080;
-     border-color: #fe7879;
+     background-color: #1d9bf0;
+     border-color: #1d9bf0;
      box-shadow: unset, 0 0 0 0 rgba(216, 89, 90, .5)
  }
  
@@ -3202,7 +3202,7 @@
  .show>.btn-primary.dropdown-toggle {
      color: #000;
      background-color: #fe8788;
-     border-color: #fe7879
+     border-color: #1d9bf0
  }
  
  .btn-check:checked+.btn-primary:focus,
@@ -3955,7 +3955,7 @@
  }
  
  .btn-link:hover {
-     color: #fe3638;
+     color: #1d9bf0;
      text-decoration: none
  }
  
@@ -5468,7 +5468,7 @@
  
  .page-link:focus {
      z-index: 3;
-     color: #fe3638;
+     color: #1d9bf0;
      background-color: #f3f5f9;
      outline: 0;
      box-shadow: 0 0 0 0 rgba(254, 105, 106, .25)
@@ -14780,8 +14780,8 @@
  .btn-primary:focus,
  .btn-primary.active,
  .btn-primary.show {
-     border-color: #fe3638;
-     background-color: #fe3638
+     border-color: #63a7d5;
+     background-color: #1d9bf0
  }
  
  .btn-accent:hover,

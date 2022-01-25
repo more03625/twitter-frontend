@@ -1,5 +1,6 @@
 import React from 'react';
-import defaultUserImage from '../../../assets/images/user/default.jpg'
+import defaultUserImage from '../../../assets/images/user/default.jpg';
+
 const UserImage = (props) => {
   const { userImage } = props;
   return (

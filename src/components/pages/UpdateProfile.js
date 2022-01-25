@@ -1,21 +1,18 @@
 import React, { useState, useEffect } from 'react'
 import Header from '../layouts/Header'
 import PageTitle from '../layouts/PageTitle';
-import { useHistory } from 'react-router';
-import { Host, Endpoints, getUserInfo, notify, catchError, convertToBase64, webErrors } from '../../helper/comman_helper';
-import axios from 'axios';
+import { getUserInfo, notify, convertToBase64, webErrors, signOut } from '../../helper/comman_helper';
 import { Toaster } from 'react-hot-toast';
 import Spinner from '../layouts/Spinner';
 import ProfileSidebar from '../sections/update-profile/ProfileSidebar';
-import { profileApi } from '../../data/api/Profile/profile';
-import Footer from '../layouts/Footer';
+import { profileApi } from '../../data/api/profile/profile';
+import { Link } from '@mui/material';
+import UserImage from '../layouts/TweetCard/UserImage';
 
 const Profile = () => {
     const [error, setError] = useState({});
     const [userInfo, setUserInfo] = useState({});
     const [loading, setLoading] = useState({ loading: false, apiLoading: false });
-    const history = useHistory();
-
 
     const handleChange = async (e) => {
         if (e.target.name === 'profileImage') {
@@ -54,9 +51,9 @@ const Profile = () => {
                 const { createdAt, updatedAt, ...updateUserObject } = userInfo;
                 const response = await profileApi(updateUserObject, 'patch');
                 if (response.data.error) {
-                    notify(response.data.title, 'error')
+                    notify(response.data.title, 'error');
                 } else {
-                    notify(response.data.title, 'success')
+                    notify(response.data.title, 'success');
                 }
             }
         }
@@ -84,27 +81,29 @@ const Profile = () => {
         }
         setLoading({ apiLoading: false });
     }
-
     useEffect(() => {
         getUserDetails();
     }, [])
     return (
         <>
             <Header />
-            <PageTitle title={'Profile Info'} />
             <Toaster />
+            <PageTitle title={'Profile Info'} />
             <div className="container pb-5 mb-2 mb-md-4">
                 <div className="row">
                     <ProfileSidebar userInfo={userInfo} />
                     <section className="col-lg-8">
                         <div className="d-none d-lg-flex justify-content-between align-items-center pt-lg-3 pb-4 pb-lg-5 mb-lg-3">
-                            <h6 className="fs-base text-light mb-0">Update you profile details below:</h6><a className="btn btn-primary btn-sm" href="account-signin.html"><i className="ci-sign-out me-2"></i>Sign out</a>
+                            <h6 className="fs-base text-light mb-0">Update you profile details below:</h6>
+                            <Link className="btn btn-primary btn-sm" to="#" onClick={signOut}>
+                                <i className="ci-sign-out me-2"></i>Sign out
+                            </Link>
                         </div>
                         {loading.apiLoading ? (<Spinner size={'normal'} />) : (
                             <form onSubmit={handleSubmit}>
                                 <div className="bg-secondary rounded-3 p-4 mb-4">
                                     <div className="d-flex align-items-center">
-                                        <img className="rounded" src={userInfo?.profileImage} width="90" alt={userInfo?.username} />
+                                        <UserImage userImage={userInfo?.profileImage} />
                                         <div className="ps-3">
                                             <button className="btn btn-light btn-shadow btn-sm mb-2" type="button" onClick={() => document.getElementById('profile-image').click()}>
 
@@ -138,7 +137,7 @@ const Profile = () => {
                                         <hr className="mt-2 mb-3" />
                                         <div className="d-flex flex-wrap justify-content-between align-items-center">
                                             <button className="btn btn-primary mt-3 mt-sm-0" type="submit" disabled={loading.loading}>
-                                                {loading.loading ? <Spinner size="normal" /> : 'Update profile'}
+                                                {loading.loading ? <Spinner size="small" /> : 'Update profile'}
                                             </button>
                                         </div>
                                     </div>

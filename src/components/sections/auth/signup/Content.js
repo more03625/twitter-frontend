@@ -70,7 +70,7 @@ const Content = () => {
 
                 <div className="col-md-6 pt-4 mt-3 mt-md-0">
                     <h2 className="h4 mb-3">No account? Sign up</h2>
-                    <p className="fs-sm text-muted mb-4">Registration takes less than a minute but gives you full control over your orders.</p>
+                    <p className="fs-sm text-muted mb-4">Registration takes less than a minute but gives you full control over your twitter.</p>
                     <form onSubmit={handleSubmit}>
                         <div className="row gx-4 gy-3">
                             <div className="col-sm-6">
@@ -99,7 +99,7 @@ const Content = () => {
                             <div className="col-12 text-end">
                                 <button className="btn btn-primary" type="submit" disabled={loading}>
                                     <i className="ci-user me-2 ms-n1" />
-                                    {loading ? (<Spinner />) : ('Sign Up')}
+                                    {loading ? (<Spinner size={'small'}/>) : ('Sign Up')}
                                 </button>
                             </div>
 

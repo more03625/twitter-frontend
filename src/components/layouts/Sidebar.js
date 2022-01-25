@@ -27,41 +27,33 @@ const Sidebar = () => {
                                 <CottageOutlinedIcon />&nbsp; Home
                             </Link>
                         </li>
-                       
-                        <li className="border-bottom mb-0">
-                            <Link className="nav-link-style d-flex align-items-center px-4 py-3 active" to="/comming-soon">
-                                <TagOutlinedIcon />&nbsp; Explore
-                            </Link>
-                        </li>
-                        <li className="border-bottom mb-0">
-                            <Link className="nav-link-style d-flex align-items-center px-4 py-3 active" to="/comming-soon">
-                                <NotificationsOutlinedIcon />&nbsp; Notifications
-                            </Link>
-                        </li>
-                        <li className="border-bottom mb-0">
-                            <Link className="nav-link-style d-flex align-items-center px-4 py-3 active" to="/comming-soon">
-                                <MailOutlineOutlinedIcon />&nbsp; Messages
-                            </Link>
-                        </li>
-                        <li className="border-bottom mb-0">
-                            <Link className="nav-link-style d-flex align-items-center px-4 py-3 active" to="/comming-soon">
-                                <BookmarkBorderOutlinedIcon />&nbsp; Bookmark
-                            </Link>
-                        </li>
                         <li className="border-bottom mb-0">
                             <Link className="nav-link-style d-flex align-items-center px-4 py-3 active" to="/update-profile">
                                 <PersonIcon />&nbsp; Profile
                             </Link>
                         </li>
-
-
-
+                        <li className="border-bottom mb-0">
+                            <Link className="nav-link-style d-flex align-items-center px-4 py-3" to="/comming-soon">
+                                <TagOutlinedIcon />&nbsp; Explore
+                            </Link>
+                        </li>
+                        <li className="border-bottom mb-0">
+                            <Link className="nav-link-style d-flex align-items-center px-4 py-3" to="/comming-soon">
+                                <NotificationsOutlinedIcon />&nbsp; Notifications
+                            </Link>
+                        </li>
+                        <li className="border-bottom mb-0">
+                            <Link className="nav-link-style d-flex align-items-center px-4 py-3" to="/comming-soon">
+                                <MailOutlineOutlinedIcon />&nbsp; Messages
+                            </Link>
+                        </li>
+                        <li className="border-bottom mb-0">
+                            <Link className="nav-link-style d-flex align-items-center px-4 py-3" to="/comming-soon">
+                                <BookmarkBorderOutlinedIcon />&nbsp; Bookmark
+                            </Link>
+                        </li>
                     </ul>
-
-
                 </div>
-
-
             </div>
         </aside>
     );
