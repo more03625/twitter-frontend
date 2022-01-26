@@ -1,7 +1,7 @@
 import React from 'react'
 import { Link } from 'react-router-dom';
+import { signOut } from '../../../helper/comman_helper';
 import UserImage from '../../layouts/TweetCard/UserImage';
-
 const ProfileSidebar = (props) => {
     const { userInfo } = props;
     return (
@@ -26,6 +26,9 @@ const ProfileSidebar = (props) => {
                             <li className="border-bottom mb-0">
                                 <Link className="nav-link-style d-flex align-items-center px-4 py-3 active" to="/update-profile">
                                     <i className="ci-user opacity-60 me-2"></i>Profile info
+                                </Link>
+                                <Link className="nav-link-style d-flex align-items-center px-4 py-3" to="#" onClick={signOut}>
+                                    <i className="ci-sign-out opacity-60 me-2"></i>Signout
                                 </Link>
                             </li>
                         </ul>

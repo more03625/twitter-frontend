@@ -56,6 +56,16 @@ const Content = () => {
                 </section>
                 <Sidebar />
             </div>
+            <div class="handheld-toolbar">
+                <div class="d-table table-layout-fixed w-100">
+                    <a class="d-table-cell handheld-toolbar-item" href="#" data-bs-toggle="offcanvas" data-bs-target="#blog-sidebar">
+                        <span class="handheld-toolbar-icon">
+                            <i class="ci-sign-in"></i>
+                        </span>
+                        <span class="handheld-toolbar-label">Sidebar</span>
+                    </a>
+                </div>
+            </div>
         </div>
     );
 };

@@ -103,9 +103,7 @@ const Profile = () => {
                     <section className="col-lg-8">
                         <div className="d-none d-lg-flex justify-content-between align-items-center pt-lg-3 pb-4 pb-lg-5 mb-lg-3">
                             <h6 className="fs-base text-light mb-0">Update you profile details below:</h6>
-                            <Link className="btn btn-primary btn-sm" to="#" onClick={signOut}>
-                                <i className="ci-sign-out me-2"></i>Sign out
-                            </Link>
+                         
                         </div>
                         {loading.apiLoading ? (<Spinner size={'normal'} />) : (
                             <form onSubmit={handleSubmit}>

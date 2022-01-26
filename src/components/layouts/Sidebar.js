@@ -16,44 +16,46 @@ const Sidebar = () => {
                     <h2 className="h5 mb-0">Sidebar</h2>
                     <button className="btn-close ms-auto" type="button" data-bs-dismiss="offcanvas" aria-label="Close" />
                 </div>
-                <div className="d-lg-block collapse" id="account-menu">
-                    <div className="bg-secondary px-4 py-3">
-                        <h3 className="fs-sm mb-0 text-muted">Dashboard</h3>
+                <div className="offcanvas-body py-grid-gutter py-lg-1 px-lg-4" data-simplebar data-simplebar-auto-hide="true">
+                    {/* Categories*/}
+                    <div className="widget widget-links mb-grid-gutter pb-grid-gutter border-bottom mx-lg-2">
+                        {/* <h3 className="widget-title">Blog categories</h3> */}
+                        <ul className="widget-list">
+                            <li className="widget-list-item border-bottom mb-0">
+                                <Link className="widget-list-link nav-link-style d-flex align-items-center px-4 py-3 active" to="/">
+                                    <CottageOutlinedIcon />&nbsp; Home
+                                </Link>
+                            </li>
+                            <li className="widget-list-item border-bottom mb-0">
+                                <Link className="widget-list-link nav-link-style d-flex align-items-center px-4 py-3 active" to="/update-profile">
+                                    <PersonIcon />&nbsp; Profile
+                                </Link>
+                            </li>
+                            <li className="widget-list-item border-bottom mb-0">
+                                <Link className="widget-list-link nav-link-style d-flex align-items-center px-4 py-3" to="/comming-soon">
+                                    <TagOutlinedIcon />&nbsp; Explore
+                                </Link>
+                            </li>
+                            <li className="widget-list-item border-bottom mb-0">
+                                <Link className="widget-list-link nav-link-style d-flex align-items-center px-4 py-3" to="/comming-soon">
+                                    <NotificationsOutlinedIcon />&nbsp; Notifications
+                                </Link>
+                            </li>
+                            <li className="widget-list-item border-bottom mb-0">
+                                <Link className="widget-list-link nav-link-style d-flex align-items-center px-4 py-3" to="/comming-soon">
+                                    <MailOutlineOutlinedIcon />&nbsp; Messages
+                                </Link>
+                            </li>
+                            <li className="widget-list-item border-bottom mb-0">
+                                <Link className="widget-list-link nav-link-style d-flex align-items-center px-4 py-3" to="/comming-soon">
+                                    <BookmarkBorderOutlinedIcon />&nbsp; Bookmark
+                                </Link>
+                            </li>
+                        </ul>
                     </div>
-                    <ul className="list-unstyled mb-0">
 
-                        <li className="border-bottom mb-0">
-                            <Link className="nav-link-style d-flex align-items-center px-4 py-3 active" to="/">
-                                <CottageOutlinedIcon />&nbsp; Home
-                            </Link>
-                        </li>
-                        <li className="border-bottom mb-0">
-                            <Link className="nav-link-style d-flex align-items-center px-4 py-3 active" to="/update-profile">
-                                <PersonIcon />&nbsp; Profile
-                            </Link>
-                        </li>
-                        <li className="border-bottom mb-0">
-                            <Link className="nav-link-style d-flex align-items-center px-4 py-3" to="/comming-soon">
-                                <TagOutlinedIcon />&nbsp; Explore
-                            </Link>
-                        </li>
-                        <li className="border-bottom mb-0">
-                            <Link className="nav-link-style d-flex align-items-center px-4 py-3" to="/comming-soon">
-                                <NotificationsOutlinedIcon />&nbsp; Notifications
-                            </Link>
-                        </li>
-                        <li className="border-bottom mb-0">
-                            <Link className="nav-link-style d-flex align-items-center px-4 py-3" to="/comming-soon">
-                                <MailOutlineOutlinedIcon />&nbsp; Messages
-                            </Link>
-                        </li>
-                        <li className="border-bottom mb-0">
-                            <Link className="nav-link-style d-flex align-items-center px-4 py-3" to="/comming-soon">
-                                <BookmarkBorderOutlinedIcon />&nbsp; Bookmark
-                            </Link>
-                        </li>
-                    </ul>
                 </div>
+
             </div>
         </aside>
     );

@@ -86,7 +86,7 @@ const Content = () => {
                                     </button>
                                 </div>
                             </form>
-                            <div className="d-flex flex-wrap justify-content-center">
+                            <div className="d-flex flex-wrap justify-content-center mt-3">
                                 <p className='fs-sm'>Don't have an account?</p> <Link className='fs-sm' to="/signup">&nbsp; Signup here</Link>
                             </div>
                         </div>
