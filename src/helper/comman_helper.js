@@ -1,7 +1,7 @@
 import toast from 'react-hot-toast';
 import { twitterTokenName } from './constant';
 
-export const Host = window.location.host === 'twitter-mern.netlify.app' ? "https://twitter-backend-apis.herokuapp.com" : "http://localhost:5000";
+export const Host = window.location.host === 'twitter-mern.netlify.app' ? "https://twitter-backend-0say.onrender.com" : "http://localhost:5000";
 
 export const Endpoints = {
     signIn: "/api/auth/signin",
