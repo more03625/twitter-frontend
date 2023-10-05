@@ -7,8 +7,6 @@ import ProfileSidebar from '../sections/update-profile/ProfileSidebar';
 import { profileApi } from '../../data/api/Profile/profile';
 import { Link } from '@mui/material';
 import { twitterTokenName } from '../../helper/constant';
-
-import { Link } from '@mui/material';
 import { Toaster } from 'react-hot-toast';
 
 const Profile = () => {
